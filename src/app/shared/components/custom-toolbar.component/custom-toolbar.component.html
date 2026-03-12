@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <span class="app-title">
+    BTG Funds Manager
+  </span>
+  <span class="spacer"></span>
+  <div class="balance">
+    <small>Saldo disponible</small>
+    <div class="amount">
+      {{ balance() | currency:'COP':'symbol':'1.0-0' }}
+    </div>
+  </div>
+</mat-toolbar>

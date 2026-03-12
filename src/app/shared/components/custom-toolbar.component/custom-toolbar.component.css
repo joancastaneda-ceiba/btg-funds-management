@@ -1,0 +1,32 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.balance {
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+}
+
+.balance small {
+
+  font-size: 11px;
+  opacity: 0.8;
+
+}
+
+.amount {
+
+  font-weight: 600;
+  font-size: 18px;
+
+}
+
+.app-title {
+
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+}
