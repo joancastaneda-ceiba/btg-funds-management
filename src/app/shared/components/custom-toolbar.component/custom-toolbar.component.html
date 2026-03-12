@@ -6,7 +6,7 @@
   <div class="balance">
     <small>Saldo disponible</small>
     <div class="amount">
-      {{ balance() | currency:'COP':'symbol':'1.0-0' }}
+      {{ fundStore.balance() | currency:'COP':'symbol':'1.0-0' }}
     </div>
   </div>
 </mat-toolbar>

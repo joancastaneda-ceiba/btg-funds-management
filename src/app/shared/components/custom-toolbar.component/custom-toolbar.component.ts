@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { FundStore } from '../../../core/stores/fund.store';
 
 @Component({
   standalone: true,
@@ -10,5 +11,5 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   styleUrl: './custom-toolbar.component.css',
 })
 export class CustomToolbarComponent {
-  balance = signal<number>(0);
+  constructor(public fundStore: FundStore) { }
 }

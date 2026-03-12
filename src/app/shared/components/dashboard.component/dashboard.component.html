@@ -4,7 +4,7 @@
     <div class="summary-info">
       <span class="summary-label">Saldo disponible</span>
       <span class="summary-value">
-        {{ balance() | currency:'COP':'symbol':'1.0-0' }}
+        {{ fundStore.balance() | currency:'COP':'symbol':'1.0-0' }}
       </span>
     </div>
   </mat-card>
@@ -34,7 +34,7 @@
     <div class="summary-info">
       <span class="summary-label">Transacciones</span>
       <span class="summary-value">
-        {{ transactions().length }}
+        {{ fundStore.transactions().length }}
       </span>
     </div>
   </mat-card>

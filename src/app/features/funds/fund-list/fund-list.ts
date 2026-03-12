@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { DashboardComponent } from '../../../shared/components/dashboard.component/dashboard.component';
+import { FundStore } from '../../../core/stores/fund.store';
 
 @Component({
   standalone: true,
@@ -18,7 +19,7 @@ import { DashboardComponent } from '../../../shared/components/dashboard.compone
 export class FundListComponent implements OnInit {
   funds = signal<Fund[]>([]);
 
-  constructor(private service: FundService) { }
+  constructor(private service: FundService, private fundStore: FundStore) { }
 
   ngOnInit(): void {
     this.service.GetAll().subscribe({
@@ -28,7 +29,7 @@ export class FundListComponent implements OnInit {
   }
 
   subscribe(fund: Fund) {
-    console.log("Suscribirse a", fund.name)
+    this.fundStore.subscribeToFund(fund);
   }
 
 }
