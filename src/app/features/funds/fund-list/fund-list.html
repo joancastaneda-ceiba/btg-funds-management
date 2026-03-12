@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="fund-grid">
+        @for(fund of funds(); track $index) {
+        <mat-card>
+
+            <mat-card-title>
+                {{ fund.name }}
+            </mat-card-title>
+
+            <mat-card-content>
+
+                <p>Categoría: {{ fund.category }}</p>
+
+                <p>
+                    Monto mínimo:
+                    {{ fund.minimumAmount | currency:'COP' }}
+                </p>
+
+            </mat-card-content>
+
+            <mat-card-actions>
+
+                <button mat-raised-button color="primary" (click)="subscribe(fund)">
+                    Suscribirse
+                </button>
+
+            </mat-card-actions>
+
+        </mat-card>
+
+        }
+    </div>
+</div>
