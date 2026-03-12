@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { Fund } from '../../../core/models/fund.model';
 import { FundService } from '../../../core/services/fund/fund.service';
 import { MatCardModule } from '@angular/material/card';
@@ -8,6 +8,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { DashboardComponent } from '../../../shared/components/dashboard.component/dashboard.component';
 import { FundStore } from '../../../core/stores/fund.store';
+import { MatDialog } from '@angular/material/dialog';
+import { FundSubscribeDialog } from '../fund-subscribe-dialog/fund-subscribe-dialog';
 
 @Component({
   standalone: true,
@@ -18,6 +20,7 @@ import { FundStore } from '../../../core/stores/fund.store';
 })
 export class FundListComponent implements OnInit {
   funds = signal<Fund[]>([]);
+  readonly dialog = inject(MatDialog);
 
   constructor(private service: FundService, private fundStore: FundStore) { }
 
@@ -28,8 +31,13 @@ export class FundListComponent implements OnInit {
     });
   }
 
-  subscribe(fund: Fund) {
-    this.fundStore.subscribeToFund(fund);
-  }
+  openSubscriptionDialog(fund: Fund) {
+    const dialogRef = this.dialog.open(FundSubscribeDialog, { data: fund });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.fundStore.subscribeToFund(fund, result.amount(), result.notification())
+      }
+    });
+  }
 }

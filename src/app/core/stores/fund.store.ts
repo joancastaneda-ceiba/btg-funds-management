@@ -31,25 +31,40 @@ export class FundStore {
         this.balance.update(v => v + subscription.amount);
     }
 
-    subscribeToFund(fund: Fund) {
+    subscribeToFund(fund: Fund, amount: number, notification: 'EMAIL' | 'SMS') {
         if (this.balance() < fund.minimumAmount) {
             throw new Error('Saldo insuficiente');
         }
 
         let newDate = new Date();
-        this.balance.update(v => v - fund.minimumAmount);
+        this.balance.update(v => v - amount);
 
-        this.subscriptions.update(list => [
+        this.subscriptions.update(list => {
+
+        const existing = list.find(s => s.fundId === fund.id);
+
+        if (existing) {
+
+            return list.map(s =>
+                s.fundId === fund.id
+                    ? { ...s, amount: s.amount + amount }
+                    : s
+            );
+
+        }
+
+        return [
             ...list,
             {
                 id: crypto.randomUUID(),
                 fundName: fund.name,
                 fundId: fund.id,
                 fundCategory: fund.category,
-                amount: fund.minimumAmount,
-                date: newDate,
+                amount,
+                date: newDate
             }
-        ]);
+        ];
+    });
 
         this.transactions.update(list => [
             ...list,
@@ -58,8 +73,9 @@ export class FundStore {
                 type: 'SUBSCRIPTION',
                 fundId: fund.id,
                 fundName: fund.name,
-                amount: fund.minimumAmount,
-                date: newDate
+                amount:amount,
+                date: newDate,
+                notificationMethod: notification
             }
         ]);
     }
