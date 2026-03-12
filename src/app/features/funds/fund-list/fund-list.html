@@ -1,33 +1,41 @@
 <div class="container">
     <div class="fund-grid">
         @for(fund of funds(); track $index) {
-        <mat-card>
+        <mat-card class="fund-card">
+            <mat-card-header>
+                <div mat-card-avatar class="fund-avatar">
+                    <mat-icon>trending_up</mat-icon>
+                </div>
 
-            <mat-card-title>
-                {{ fund.name }}
-            </mat-card-title>
+                <div class="fund-header">
+
+                    <mat-card-title class="fund-title" [matTooltip]="fund.name">
+                        {{ fund.name }}
+                    </mat-card-title>
+
+                    <span class="category-badge" [ngClass]="fund.category.toLowerCase()">
+                        {{ fund.category }}
+                    </span>
+                </div>
+            </mat-card-header>
 
             <mat-card-content>
-
-                <p>Categoría: {{ fund.category }}</p>
-
-                <p>
-                    Monto mínimo:
-                    {{ fund.minimumAmount | currency:'COP' }}
-                </p>
-
+                <div class="fund-info">
+                    <div class="info-item">
+                        <span class="label">Monto mínimo</span>
+                        <span class="value">
+                            {{ fund.minimumAmount | currency:'COP':'symbol':'1.0-0' }}
+                        </span>
+                    </div>
+                </div>
             </mat-card-content>
 
-            <mat-card-actions>
-
-                <button mat-raised-button color="primary" (click)="subscribe(fund)">
+            <mat-card-actions align="end">
+                <button mat-raised-button color="primary">
                     Suscribirse
                 </button>
-
             </mat-card-actions>
-
         </mat-card>
-
         }
     </div>
 </div>

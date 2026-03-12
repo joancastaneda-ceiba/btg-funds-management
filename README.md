@@ -31,6 +31,7 @@ Esta es una prueba técnica que implementa un sistema de gestión de fondos de i
 - **TypeScript** - Lenguaje de programación
 - **RxJS** - Gestión reactiva de estado
 - **Angular Forms** - Validaciones de formularios
+- **Angular Material** - Diseño responsive
 - **Vitest** - Testing unitario
 
 ## 📋 Requisitos Previos

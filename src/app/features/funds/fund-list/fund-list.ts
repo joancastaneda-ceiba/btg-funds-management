@@ -4,11 +4,13 @@ import { FundService } from '../../../core/services/fund/fund.service';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   standalone: true,
   selector: 'app-fund-list',
-  imports: [MatCardModule, MatButtonModule, CommonModule],
+  imports: [MatCardModule, MatButtonModule, MatTooltipModule, MatIconModule, CommonModule],
   templateUrl: './fund-list.html',
   styleUrl: './fund-list.css',
 })
