@@ -1,1 +1,23 @@
+<app-custom-toolbar />
+
+<nav mat-tab-nav-bar>
+  <a
+    mat-tab-link
+    routerLink="/funds"
+    routerLinkActive
+    #fundsActive="routerLinkActive"
+    [active]="fundsActive.isActive">
+    Fondos
+  </a>
+
+  <a
+    mat-tab-link
+    routerLink="/transactions"
+    routerLinkActive
+    #transactionsActive="routerLinkActive"
+    [active]="transactionsActive.isActive">
+    Transacciones
+  </a>
+</nav>
+
 <router-outlet />
