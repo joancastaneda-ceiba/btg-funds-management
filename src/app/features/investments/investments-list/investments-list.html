@@ -1,0 +1,68 @@
+<div class="page-container">
+    <h2 class="page-title">
+        Mis inversiones
+    </h2>
+    @if (fundStore.subscriptions().length === 0) {
+    <div class="empty-state">
+        <mat-icon>account_balance</mat-icon>
+
+        <p>No tienes inversiones activas</p>
+
+        <button mat-raised-button color="primary" routerLink="/funds">
+            Explorar fondos
+        </button>
+    </div>
+    } @else {
+
+    <div class="investment-grid">
+        @for (fund of fundStore.subscriptions(); track fund.id) {
+        <mat-card class="investment-card">
+            <mat-card-header>
+                <div mat-card-avatar class="fund-avatar">
+                    <mat-icon>trending_up</mat-icon>
+                </div>
+
+                <div class="fund-header">
+                    <mat-card-title class="fund-title" [matTooltip]="fund.fundName">
+                        {{ fund.fundName }}
+                    </mat-card-title>
+
+                    <span class="category-badge" [ngClass]="fund.fundCategory.toLowerCase()">
+                        {{ fund.fundCategory }}
+                    </span>
+                </div>
+            </mat-card-header>
+
+            <mat-card-content>
+                <div class="investment-info">
+                    <div class="info-item">
+                        <span class="label">
+                            Monto invertido
+                        </span>
+                        <span class="value">
+                            {{ fund.amount | currency:'COP':'symbol':'1.0-0' }}
+                        </span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="label">
+                            Fecha de suscripción
+                        </span>
+
+                        <span class="value">
+                            {{ fund.date | date:'mediumDate' }}
+                        </span>
+                    </div>
+                </div>
+            </mat-card-content>
+
+            <mat-card-actions align="end">
+                <button mat-stroked-button color="warn" (click)="cancelInvestment(fund)">
+                    Cancelar participación
+                </button>
+            </mat-card-actions>
+        </mat-card>
+        }
+    </div>
+    }
+</div>

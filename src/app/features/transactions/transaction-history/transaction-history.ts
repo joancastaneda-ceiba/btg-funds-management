@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { Transaction } from '../../../core/models/transaction.model';
 import { CommonModule } from '@angular/common';
+import { FundStore } from '../../../core/stores/fund.store';
 
 @Component({
   selector: 'app-transaction-history',
@@ -11,7 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class TransactionHistoryComponent {
 
-  transactions: Transaction[] = [];
-  
+  constructor(public fundStore: FundStore) { }
+
   displayedColumns = ['date', 'fund', 'type', 'amount'];
 }

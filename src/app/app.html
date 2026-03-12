@@ -12,6 +12,15 @@
 
   <a
     mat-tab-link
+    routerLink="/investments"
+    routerLinkActive
+    #fundsActive="routerLinkActive"
+    [active]="fundsActive.isActive">
+    Mis Inversiones
+  </a>
+
+  <a
+    mat-tab-link
     routerLink="/transactions"
     routerLinkActive
     #transactionsActive="routerLinkActive"

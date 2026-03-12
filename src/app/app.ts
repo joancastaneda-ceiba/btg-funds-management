@@ -4,10 +4,11 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { FundListComponent } from './features/funds/fund-list/fund-list';
 import { CustomToolbarComponent } from './shared/components/custom-toolbar.component/custom-toolbar.component';
+import { InvestmentsListComponent } from './features/investments/investments-list/investments-list';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, MatTabsModule, CustomToolbarComponent, FundListComponent],
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, MatTabsModule, CustomToolbarComponent, FundListComponent, InvestmentsListComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

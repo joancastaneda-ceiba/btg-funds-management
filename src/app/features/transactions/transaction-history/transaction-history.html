@@ -1,8 +1,6 @@
-<p>transaction-history works!</p>
-
 <div class="container">
 
-    <table mat-table [dataSource]="transactions" class="mat-elevation-z2">
+    <table mat-table [dataSource]="fundStore.transactions()" class="mat-elevation-z2">
 
         <!-- FECHA -->
         <ng-container matColumnDef="date">
