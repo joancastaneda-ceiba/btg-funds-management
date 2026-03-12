@@ -217,11 +217,11 @@ Los datos se sirven desde archivos JSON en `src/assets/api/` y se interceptan co
 ## 🚦 Estado de Desarrollo
 
 - ✅ Estructura del proyecto
-- ⏳ Componentes principales
-- ⏳ Servicios y gestión de estado
-- ⏳ API simulada
-- ⏳ Validaciones de formularios
-- ⏳ Diseño responsivo
+- ✅ Componentes principales
+- ✅ Servicios y gestión de estado
+- ✅ API simulada
+- ✅ Validaciones de formularios
+- ✅ Diseño responsivo
 - ⏳ Pruebas unitarias
 - ⏳ Mejoras UI/UX
 
