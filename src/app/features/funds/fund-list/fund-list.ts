@@ -6,11 +6,12 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
+import { DashboardComponent } from '../../../shared/components/dashboard.component/dashboard.component';
 
 @Component({
   standalone: true,
   selector: 'app-fund-list',
-  imports: [MatCardModule, MatButtonModule, MatTooltipModule, MatIconModule, CommonModule],
+  imports: [MatCardModule, MatButtonModule, MatTooltipModule, MatIconModule, CommonModule, DashboardComponent],
   templateUrl: './fund-list.html',
   styleUrl: './fund-list.css',
 })

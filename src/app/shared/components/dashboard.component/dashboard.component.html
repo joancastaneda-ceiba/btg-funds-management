@@ -1,0 +1,41 @@
+<div class="dashboard">
+  <mat-card class="summary-card">
+    <mat-icon class="summary-icon">account_balance_wallet</mat-icon>
+    <div class="summary-info">
+      <span class="summary-label">Saldo disponible</span>
+      <span class="summary-value">
+        {{ balance() | currency:'COP':'symbol':'1.0-0' }}
+      </span>
+    </div>
+  </mat-card>
+
+  <mat-card class="summary-card">
+    <mat-icon class="summary-icon">trending_up</mat-icon>
+    <div class="summary-info">
+      <span class="summary-label">Total invertido</span>
+      <span class="summary-value">
+        {{ totalInvested() | currency:'COP':'symbol':'1.0-0' }}
+      </span>
+    </div>
+  </mat-card>
+
+  <mat-card class="summary-card">
+    <mat-icon class="summary-icon">pie_chart</mat-icon>
+    <div class="summary-info">
+      <span class="summary-label">Fondos activos</span>
+      <span class="summary-value">
+        {{ activeFunds() }}
+      </span>
+    </div>
+  </mat-card>
+
+  <mat-card class="summary-card">
+    <mat-icon class="summary-icon">receipt_long</mat-icon>
+    <div class="summary-info">
+      <span class="summary-label">Transacciones</span>
+      <span class="summary-value">
+        {{ transactions().length }}
+      </span>
+    </div>
+  </mat-card>
+</div>
